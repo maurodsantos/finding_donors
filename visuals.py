@@ -47,6 +47,40 @@ def distribution(data, transformed = False):
     fig.tight_layout()
     fig.show()
 
+    
+def distribution_all(data, class_label, transformed = False):
+    """
+    Visualization code for displaying skewed distributions of features
+    """
+    
+    # Create figure
+    fig = pl.figure(figsize = (20,22));
+
+    # Skewed feature plotting
+    for i, feature in enumerate(data.columns):
+        ax = fig.add_subplot(5, 3, i+1)
+        ax.hist(data[class_label=='<=50K'][feature],density=True, bins = 50, color = '#00A0A0',label='<=50K')
+        ax.hist(data[class_label=='>50K'][feature],density=True, bins = 50, color = '#A00000',label='>50K')
+       
+        ax.set_title("'%s' Feature Distribution"%(feature), fontsize = 14)
+        ax.set_xlabel("Value")
+        ax.set_ylabel("% of Records")
+        leg = ax.legend();
+#         ax.set_ylim((0, 2000))
+#         ax.set_yticks([0, 500, 1000, 1500, 2000])
+#         ax.set_yticklabels([0, 500, 1000, 1500, ">2000"])
+
+    # Plot aesthetics
+    if transformed:
+        fig.suptitle("Log-transformed Distributions of Continuous Census Data Features", \
+            fontsize = 16, y = 1.03)
+    else:
+        fig.suptitle("Skewed Distributions of Continuous Census Data Features", \
+            fontsize = 16, y = 1.03)
+
+    fig.tight_layout()
+    fig.show()  
+    
 
 def evaluate(results, accuracy, f1):
     """
