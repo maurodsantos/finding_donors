@@ -16037,12 +16037,9 @@ Final F-score on the testing data: 0.7382</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Question-7---Extracting-Feature-Importance">Question 7 - Extracting Feature Importance<a class="anchor-link" href="#Question-7---Extracting-Feature-Importance">&#182;</a></h3><p>Observe the visualization created above which displays the five most relevant features for predicting if an individual makes at most or above \$50,000.</p>
 <ul>
-<li>How do these five features compare to the five features you discussed in <strong>Question 6</strong>?</li>
-</ul>
-<p>The features from question 6 match with 3 of the AdaBoost Classifier important features. Apart from the marital status the other 4 features are continuous which were harder to see just by inspecting the normalised histograms as above.</p>
-<ul>
-<li><p>If you were close to the same answer, how does this visualization confirm your thoughts? 
-Normalising the histogram per class allows a better visualisation of the differences in the features relative to the class counts.</p>
+<li><p>How do these five features compare to the five features you discussed in <strong>Question 6</strong>?</p>
+</li>
+<li><p>If you were close to the same answer, how does this visualization confirm your thoughts?</p>
 </li>
 <li><p>If you were not close, why do you think these features are more relevant?</p>
 </li>
@@ -16052,7 +16049,18 @@ Normalising the histogram per class allows a better visualisation of the differe
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Answer:</strong></p>
+<h2 id="Answer">Answer<a class="anchor-link" href="#Answer">&#182;</a></h2><ul>
+<li>How do these five features compare to the five features you discussed in <strong>Question 6</strong>?</li>
+</ul>
+<p>The features from question 6 match with 3 of the AdaBoost Classifier important features (Age, hours-per-week and Marital Status). Interestingly, apart from the marital status the other 4 features picked up by the AdaBoost Classifier are continuous. In particular capital-loss and capital gain presented skewed distributions with require being normalised by applying a log function. The latter are potentially harder to inspect visualise for differences.</p>
+<ul>
+<li>If you were close to the same answer, how does this visualization confirm your thoughts? </li>
+</ul>
+<p>For the 3 matched features, normalising the histogram per class allows a better visualisation of the differences in the features relative to the class counts. It also makes sense intuitively that your salary would be proportional (up to a point) on your experience (age) and the number of hours you work. Marital status is possibibly correlated with the age.</p>
+<ul>
+<li>If you were not close, why do you think these features are more relevant?</li>
+</ul>
+<p>It does make sense that if we're reporting what a person is left with to donate, that capital gain and capital-loss would impact significantely that amount.</p>
 
 </div>
 </div>
